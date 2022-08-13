@@ -30,6 +30,6 @@ extension UIView {
 
 extension UILabel {
     func fontSetupUI() {
-        self.font = .boldSystemFont(ofSize: 16)
+        self.font = .boldSystemFont(ofSize: 17)
     }
 }

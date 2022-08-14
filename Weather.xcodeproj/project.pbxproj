@@ -22,6 +22,7 @@
 		6380EFAC28A7951200DF9C17 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 6380EFAB28A7951200DF9C17 /* Alamofire */; };
 		6380EFAF28A7951C00DF9C17 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 6380EFAE28A7951C00DF9C17 /* SwiftyJSON */; };
 		6380EFB228A7952700DF9C17 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 6380EFB128A7952700DF9C17 /* Kingfisher */; };
+		63B930AD28A92BE3002F75EC /* WeatherInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B930AC28A92BE3002F75EC /* WeatherInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		6380EFA328A77CD700DF9C17 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		6380EFA628A7866F00DF9C17 /* WeatherInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherInfoTableViewCell.swift; sourceTree = "<group>"; };
 		6380EFA828A7867900DF9C17 /* WeatherIconTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherIconTableViewCell.swift; sourceTree = "<group>"; };
+		63B930AC28A92BE3002F75EC /* WeatherInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 			children = (
 				6380EFA528A77CDF00DF9C17 /* Resource */,
 				6380EF9C28A77B6700DF9C17 /* Protocol */,
+				63B930AC28A92BE3002F75EC /* WeatherInfo.swift */,
 				6380EF8628A77AD700DF9C17 /* AppDelegate.swift */,
 				6380EF8828A77AD700DF9C17 /* SceneDelegate.swift */,
 				6380EF8A28A77AD700DF9C17 /* ViewController.swift */,
@@ -197,6 +200,7 @@
 				6380EFA928A7867900DF9C17 /* WeatherIconTableViewCell.swift in Sources */,
 				6380EFA228A77C7A00DF9C17 /* APIKey.swift in Sources */,
 				6380EFA728A7866F00DF9C17 /* WeatherInfoTableViewCell.swift in Sources */,
+				63B930AD28A92BE3002F75EC /* WeatherInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

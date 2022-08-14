@@ -133,6 +133,7 @@
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
                                                         <constraint firstItem="cEB-F4-naa" firstAttribute="leading" secondItem="QvD-Vd-hyr" secondAttribute="leading" constant="16" id="Axe-IU-N5M"/>
+                                                        <constraint firstAttribute="width" secondItem="QvD-Vd-hyr" secondAttribute="height" multiplier="93:70" id="PKc-28-Cs3"/>
                                                         <constraint firstAttribute="bottom" secondItem="cEB-F4-naa" secondAttribute="bottom" constant="16" id="idA-93-HdJ"/>
                                                         <constraint firstAttribute="trailing" secondItem="cEB-F4-naa" secondAttribute="trailing" constant="16" id="jmu-HI-VPu"/>
                                                         <constraint firstItem="cEB-F4-naa" firstAttribute="top" secondItem="QvD-Vd-hyr" secondAttribute="top" constant="16" id="rEY-ge-CGK"/>

@@ -13,6 +13,7 @@ class WeatherIconTableViewCell: UITableViewCell {
     }
     
     func setupUI() {
+        
         weatherIconImageBackgroundView.viewSetupUI()
         greetingView.viewSetupUI()
         

@@ -3,6 +3,8 @@ import CoreLocation
 
 import Kingfisher
 
+
+
 class ViewController: UIViewController {
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var headerSubView: UIView!
@@ -15,9 +17,13 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var weatherTableView: UITableView!
     
+    
     let locationManager = CLLocationManager()
     
-    var weatherInfoList: [String] = []
+     
+    var weatherInfo: WeatherInfo?
+    var weatherList: [String]?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +37,7 @@ class ViewController: UIViewController {
         headerSubView.backgroundColor = .clear
         
         currentDate()
-        
+
         setupUI()
         
     }
@@ -70,11 +76,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
-            return weatherInfoList.count
-        } else {
-            return 1
-        }
+        
+        return section == 0 ? weatherList?.count ?? 0 : 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -83,7 +86,17 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         guard let iconCell = tableView.dequeueReusableCell(withIdentifier: WeatherIconTableViewCell.reuseableIdentifier, for: indexPath) as? WeatherIconTableViewCell else { return UITableViewCell()
         }
         
-        return infoCell
+        if indexPath.section == 0 {
+            infoCell.weatherInfoLabel.text = weatherList?[indexPath.row]
+            infoCell.backgroundColor = .clear
+            return infoCell
+        } else {
+            iconCell.backgroundColor = .clear
+            iconCell.weatherIconImageView.kf.setImage(with: URL(string: "\(EndPoint.openWeatherIconURL)\(weatherInfo?.weatherIcon ?? "10n")@2x.png"))
+            iconCell.greetingLabel.text = "오늘도 행복한 하루 보내세요 :)"
+            return iconCell
+        }
+        
     }
     
     
@@ -123,7 +136,16 @@ extension ViewController {
 extension ViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let coordinate = locations.last?.coordinate {
-            RequestWeatherAPI.shared.requestOpenWeather(coordinate.latitude, coordinate.longitude)
+            RequestWeatherAPI.shared.requestOpenWeather(coordinate.latitude, coordinate.longitude) { weather, list in
+                self.weatherInfo = weather
+                self.weatherList = list
+                DispatchQueue.main.async {
+                    self.weatherTableView.reloadData()
+                    print(self.weatherInfo)
+                    print(self.weatherList)
+                }
+            }
+                    
         }
         locationManager.stopUpdatingLocation()
     }

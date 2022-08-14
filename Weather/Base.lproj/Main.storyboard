@@ -16,6 +16,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kba-F6-Jtp">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="my7-6w-NKr">
                                 <rect key="frame" x="0.0" y="44" width="414" height="134.5"/>
                                 <subviews>
@@ -47,6 +50,9 @@
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                <connections>
+                                                    <action selector="reloadButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="J1R-tu-Ot8"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -181,16 +187,21 @@
                         <color key="backgroundColor" systemColor="systemBrownColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="JUw-o4-FHQ" secondAttribute="trailing" id="7Sc-EE-TXu"/>
+                            <constraint firstItem="kba-F6-Jtp" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="8fM-aa-Obv"/>
                             <constraint firstItem="my7-6w-NKr" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.15" id="CAd-H7-MLT"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="JUw-o4-FHQ" secondAttribute="bottom" id="F2f-7u-P3C"/>
                             <constraint firstItem="my7-6w-NKr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Jqu-bQ-4q2"/>
                             <constraint firstItem="JUw-o4-FHQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="MkW-xc-LSH"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="my7-6w-NKr" secondAttribute="trailing" id="Nd3-3v-n05"/>
+                            <constraint firstItem="kba-F6-Jtp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="VRg-Cz-i8N"/>
                             <constraint firstItem="JUw-o4-FHQ" firstAttribute="top" secondItem="my7-6w-NKr" secondAttribute="bottom" id="Wdf-je-SBr"/>
                             <constraint firstItem="my7-6w-NKr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="gr6-RB-uWl"/>
+                            <constraint firstItem="kba-F6-Jtp" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="ote-Nt-g07"/>
+                            <constraint firstAttribute="bottom" secondItem="kba-F6-Jtp" secondAttribute="bottom" id="sYc-f0-UQt"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backgroundImageView" destination="kba-F6-Jtp" id="gi7-Jt-iQ4"/>
                         <outlet property="currentDateLabel" destination="mi3-OS-R8w" id="lDI-Dc-MQQ"/>
                         <outlet property="currentLocationLabel" destination="YYY-Fc-4Re" id="aG2-Y6-Szq"/>
                         <outlet property="headerSubView" destination="TLg-0y-QTC" id="d1k-SD-FQL"/>

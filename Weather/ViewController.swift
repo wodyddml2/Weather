@@ -3,12 +3,11 @@ import CoreLocation
 
 import Kingfisher
 
-
-
 class ViewController: UIViewController {
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var headerSubView: UIView!
     
+    @IBOutlet weak var backgroundImageView: UIImageView!
     
     @IBOutlet weak var currentDateLabel: UILabel!
     @IBOutlet weak var locationIconImage: UIImageView!
@@ -51,6 +50,9 @@ class ViewController: UIViewController {
     }
     
     func setupUI() {
+        backgroundImageView.image = UIImage(named: "background")
+        backgroundImageView.contentMode = .scaleAspectFill
+        
         locationIconImage.image = UIImage(systemName: "location.fill")
         locationIconImage.tintColor = .white
         
@@ -60,6 +62,7 @@ class ViewController: UIViewController {
         currentLocationLabel.textColor = .white
         currentLocationLabel.font = .systemFont(ofSize: 24)
         
+        
         reloadButton.setTitle("", for: .normal)
         reloadButton.setImage(UIImage(systemName: "gobackward"), for: .normal)
         reloadButton.tintColor = .white
@@ -67,7 +70,10 @@ class ViewController: UIViewController {
         weatherTableView.backgroundColor = .clear
          
     }
-
+    @IBAction func reloadButtonClicked(_ sender: UIButton) {
+        locationManager.startUpdatingLocation()
+    }
+    
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
@@ -139,10 +145,10 @@ extension ViewController: CLLocationManagerDelegate {
             RequestWeatherAPI.shared.requestOpenWeather(coordinate.latitude, coordinate.longitude) { weather, list in
                 self.weatherInfo = weather
                 self.weatherList = list
+                
                 DispatchQueue.main.async {
                     self.weatherTableView.reloadData()
-                    print(self.weatherInfo)
-                    print(self.weatherList)
+                    self.currentLocationLabel.text = self.weatherInfo?.currnetLocation
                 }
             }
                     

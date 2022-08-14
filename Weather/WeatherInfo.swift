@@ -5,4 +5,5 @@ struct WeatherInfo{
     let weatherTemp: Double
     let weatherHumidity: Int
     let weatherWindSpeed: Double
+    let currnetLocation: String
 }

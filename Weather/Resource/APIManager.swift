@@ -21,7 +21,8 @@ class RequestWeatherAPI {
                     weatherIcon: json["weather"][0]["icon"].stringValue,
                     weatherTemp: (json["main"]["temp"].doubleValue - 273.15),
                     weatherHumidity: json["main"]["humidity"].intValue,
-                    weatherWindSpeed: json["wind"]["speed"].doubleValue
+                    weatherWindSpeed: json["wind"]["speed"].doubleValue,
+                    currnetLocation: json["name"].stringValue
                 )
                 let list = [
                     "지금은 \(String(format: "%.1f", weatherInfo.weatherTemp))°C",
